@@ -3200,3 +3200,19 @@ input::placeholder {
 	background-color: #fe533d !important;
 	transform: scale(1.1);
 }
+
+/* Hero Slider Text Readability Improvements */
+.sp-image-container:after {
+	background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.b-main-slider h2,
+.b-main-slider h4,
+.b-main-slider h5 {
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8),
+		0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-text-button a {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
