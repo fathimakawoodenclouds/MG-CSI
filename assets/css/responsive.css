@@ -927,47 +927,87 @@
 
 	/* ===== HERO TEXT & CONTENT ===== */
 
-	/* Position text content properly over full background - using viewport units like index2 */
+	/* FINAL APPROACH: Simple margin-top to position below header */
 	.carousel-text {
-		padding-top: 53vw !important;
-		padding-left: 20px !important;
-		padding-right: 20px !important;
+		position: relative !important;
+		margin-top: 120px !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		width: 90% !important;
+		max-width: 340px !important;
+		padding: 0 15px !important;
 		text-align: center !important;
-		max-width: 100% !important;
+		z-index: 10 !important;
 	}
 
-	/* Scale down heading sizes for mobile - matching index2 */
+	/* Force slide-info containers to be centered */
+	.slide-info-left,
+	.slide-info-right,
+	.slide-info-center {
+		position: relative !important;
+		text-align: center !important;
+		width: 100% !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	/* Optimized text sizes for mobile */
 	.carousel-text h5 {
-		font-size: 12px !important;
+		font-size: 9px !important;
 		line-height: 1.3 !important;
-		margin-bottom: 8px !important;
+		margin-bottom: 5px !important;
+		font-weight: 400 !important;
+		letter-spacing: 0.5px !important;
 	}
 
 	.carousel-text h2 {
-		font-size: 25px !important;
-		line-height: 1.2 !important;
-		margin-bottom: 12px !important;
+		font-size: 17px !important;
+		line-height: 1.25 !important;
+		margin-bottom: 7px !important;
+		font-weight: 600 !important;
 	}
 
 	.carousel-text h4 {
-		font-size: 16px !important;
+		font-size: 11px !important;
 		line-height: 1.4 !important;
-		margin-bottom: 16px !important;
+		margin-bottom: 12px !important;
+		font-weight: 300 !important;
 		display: block !important;
 	}
 
 	/* ===== BUTTON IMPROVEMENTS ===== */
 
-	/* Stack buttons vertically with proper spacing - matching index2 */
+	/* Compact button container for centered layout */
 	.carousel-text-button.slider-button {
 		display: flex !important;
 		flex-direction: column !important;
 		align-items: center !important;
-		width: 190px !important;
-		max-width: 190px !important;
-		margin: 20px auto 0 auto !important;
-		height: 140px !important;
+		width: 160px !important;
+		max-width: 160px !important;
+		margin: 10px auto 0 auto !important;
+		height: auto !important;
+		min-height: 100px !important;
 		justify-content: center !important;
+		gap: 8px !important;
+	}
+
+	/* Compact buttons for mobile */
+	.carousel-text-button a,
+	.carousel-text-button-red,
+	.carousel-text-button-white {
+		display: block !important;
+		width: 100% !important;
+		margin: 0 !important;
+		padding: 10px 18px !important;
+		font-size: 12px !important;
+		text-align: center !important;
+		min-height: 40px !important;
+		box-sizing: border-box !important;
+	}
+
+	.carousel-text-button-white {
+		margin-left: 0 !important;
+		margin-top: 0 !important;
 	}
 
 	/* Make buttons properly sized for touch */
@@ -1122,6 +1162,58 @@
 
 	.section-3 {
 		padding: 0 !important;
+	}
+
+	/* Mobile fixes for about section boxes */
+	.section-3 .col-lg-3,
+	.section-3 .col-md-12 {
+		margin-bottom: 0 !important;
+	}
+
+	.section-3 .box-1 {
+		padding: 30px 20px !important;
+		margin-bottom: 0 !important;
+		text-align: center !important;
+	}
+
+	.section-3 .box-1 h3 {
+		text-align: center !important;
+	}
+
+	.section-3 .box-1 .line-2-white {
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	.section-3 .box-2 {
+		padding: 35px 25px 30px 25px !important;
+		margin-bottom: 0 !important;
+		text-align: center !important;
+		min-height: auto !important;
+	}
+
+	.section-3 .box-2 i {
+		margin-bottom: 15px !important;
+		display: block !important;
+	}
+
+	.section-3 .box-2 h4 {
+		margin-bottom: 12px !important;
+	}
+
+	.section-3 .box-2 p {
+		margin-bottom: 15px !important;
+		font-size: 14px !important;
+		line-height: 1.6 !important;
+	}
+
+	.section-3 .box-2 a {
+		display: inline-block !important;
+		width: auto !important;
+		padding: 12px 28px !important;
+		margin: 0 auto !important;
+		font-size: 13px !important;
+		border: 1px solid #fff !important;
 	}
 
 	.section-3 .box-1 {
@@ -1347,40 +1439,67 @@
 		min-height: 450px !important;
 	}
 
-	/* Adjust text positioning */
+	/* Adjust text positioning for extra small devices */
 	.carousel-text {
-		padding-top: 60px !important;
+		padding-top: 50px !important;
+	}
+
+	/* Ensure slide-info-left is centered on extra small devices */
+	.slide-info-left {
+		text-align: center !important;
+		width: 100% !important;
+	}
+
+	.carousel-text h5 {
+		font-size: 9px !important;
+		margin-bottom: 4px !important;
 	}
 
 	.carousel-text h2 {
-		font-size: 20px !important;
+		font-size: 18px !important;
+		margin-bottom: 8px !important;
 	}
 
 	.carousel-text h4 {
-		font-size: 13px !important;
+		font-size: 11px !important;
+		margin-bottom: 10px !important;
+		line-height: 1.3 !important;
 	}
 
-	/* Hide brand text on very small screens */
-	.navbar-brand span {
-		display: none !important;
+	/* Further reduce button sizes for extra small screens */
+	.carousel-text-button.slider-button {
+		width: 170px !important;
+		max-width: 170px !important;
+		height: 120px !important;
 	}
 
-	/* Tighter spacing */
-	.section-2,
-	.section-4,
-	.section-5 {
-		padding: 30px 12px !important;
+	.carousel-text-button a {
+		padding: 12px 20px !important;
+		font-size: 12px !important;
 	}
+}
 
-	.section-head h2 {
-		font-size: 22px !important;
-	}
+/* Hide brand text on very small screens */
+.navbar-brand span {
+	display: none !important;
+}
 
-	.block-box .box-text-left {
-		font-size: 36px !important;
-	}
+/* Tighter spacing */
+.section-2,
+.section-4,
+.section-5 {
+	padding: 30px 12px !important;
+}
 
-	.block-box .box-text-right {
-		font-size: 16px !important;
-	}
+.section-head h2 {
+	font-size: 22px !important;
+}
+
+.block-box .box-text-left {
+	font-size: 36px !important;
+}
+
+.block-box .box-text-right {
+	font-size: 16px !important;
+}
 }
