@@ -803,5 +803,97 @@ html .img-box-item h4 {
     html .forum-join {
     padding: 25px;
 }
-    
+
+}
+
+/* Mobile tweaks: tighten vertical spacing, scale headings, and make media fluid */
+@media (max-width: 767px) {
+    /* Reduce large section paddings on mobile */
+    .section-2, .section-4, .section-11, .section-8, .section-12 {
+        padding: 20px 12px;
+    }
+
+    /* Banner / page title: reduce top padding and type scale */
+    .title-text, .section-pr1-back .title-text {
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+    .title-text h2 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+    .title-text h5 {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+    /* About / intro block spacing */
+    .about-s-1 { 
+        padding: 20px 0;
+    }
+    .about-s-1 .text-block-section h5 {
+        font-size: 20px;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+    .about-s-1 .text-block-section p {
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        line-height: 1.6;
+        text-align: center;
+        color: #444444;
+    }
+
+    .section-head h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+    .section-head h5 {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+    .section-head .line-2-red {
+        width: 36px;
+        margin: 12px auto;
+    }
+
+    .space-top-section-4 {
+        margin-top: 18px;
+    }
+    .section-2 p, .section-4 p, .section-11 p {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        font-size: 15px;
+        line-height: 1.6;
+        color: #2b2b2b;
+    }
+    .section-3 .box-1, .section-3 .box-2 {
+        padding: 20px 6px;
+    }
+    img, .img-section-2 img, .box-icon-1 img, .item-section-4 i {
+        max-width: 100%;
+        height: auto;
+    }
+    .item-section-4 {
+        align-items: flex-start;
+    }
+    .item-section-4 i {
+        font-size: 28px;
+        margin-top: 2px;
+    }
+    .section-head {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .navbar-brand img {
+        max-height: 40px;
+    }
+    .section-9 .right-block i {
+        font-size: 80px;
+    }
 }
