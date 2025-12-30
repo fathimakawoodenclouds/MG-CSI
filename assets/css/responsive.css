@@ -677,7 +677,8 @@
 		font-size: 20px !important;
 	}
 
-	.block-box .box-icon-1 {
+	.block-box .box-icon-1,
+	.block-box .box-icon-2 {
 		padding: 30px !important;
 	}
 
@@ -743,7 +744,8 @@
 		border-bottom: 1px solid #222;
 	}
 
-	html .block-box .box-icon-1 {
+	html .block-box .box-icon-1,
+	html .block-box .box-icon-2 {
 		padding: 30px !important;
 		border-bottom: 1px solid #fff !important;
 	}
@@ -1099,7 +1101,8 @@
 		font-size: 18px !important;
 	}
 
-	.block-box .box-icon-1 {
+	.block-box .box-icon-1,
+	.block-box .box-icon-2 {
 		padding: 25px !important;
 	}
 
