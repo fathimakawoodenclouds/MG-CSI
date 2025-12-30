@@ -659,7 +659,8 @@ nav {
 	background: #fe533d;
 	margin-top: 100px;
 	padding: 70px;
-	margin-bottom: -50px;
+	/* prevent overlapping the footer */
+	margin-bottom: 30px;
 }
 
 .sub-block-section h3 {
