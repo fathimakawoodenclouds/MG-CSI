@@ -444,6 +444,19 @@ nav {
 	overflow: hidden;
 }
 
+/* Limit image height and crop to remove large empty space shown on wide screens */
+.img-section-2 img {
+	width: 100%;
+	display: block;
+}
+
+@media (min-width: 992px) {
+	.img-section-2 img {
+		height: 420px;
+		object-fit: cover;
+	}
+}
+
 .quote-section-2 .line-5-dark {
 	width: 150px;
 	height: 5px;
@@ -1423,67 +1436,7 @@ html .section-head h2 {
 	transform: scale(1.1);
 }
 
-/* Section-13 */
-
-.section-13 {
-	background: #fe533d;
-	padding: ;
-}
-
-.section-13 .text-block-section h5 {
-	color: #ffffff;
-	font-family: "Libre Baskerville";
-	font-size: 24px;
-	font-weight: 400;
-	line-height: 36px;
-}
-
-.section-13.logo-back {
-	background-image: url(../media/img/logo-back.svg);
-	background-repeat: no-repeat;
-	background-position: 14% 10px;
-	height: 206px;
-	padding-top: 2.7%;
-}
-
-.section-13 .subscribe input[type="text"] {
-	background-color: rgba(0, 0, 0, 0.15);
-	padding: 22px;
-	color: #fff;
-	border: none;
-	width: 70%;
-	height: 74px;
-}
-
-.section-13 .subscribe input::placeholder {
-	color: #ffffff;
-	font-family: Roboto;
-	font-size: 15px;
-	font-weight: 300;
-}
-
-.section-13 .subscribe input[type="submit"] {
-	background-color: #151c32;
-	color: #fff;
-	padding: 25px 40px;
-	cursor: pointer;
-	border: none;
-	color: #ffffff;
-	font-family: "Libre Baskerville";
-	font-size: 16px;
-	font-weight: 700;
-	transition: all 0.5s ease;
-}
-
-.section-13 .subscribe input[type="submit"]:hover {
-	color: #fff;
-	transform: scale(1.1);
-	font-weight: 700;
-}
-
-.section-13 .subscribe {
-	margin-top: 20px;
-}
+/* Section-13 styles removed */
 
 /* Footer */
 

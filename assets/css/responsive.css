@@ -343,10 +343,7 @@
 		margin-left: 0;
 	}
 
-	.section-13 {
-		height: 100% !important;
-		padding-bottom: 4.7% !important;
-	}
+	/* .section-13 rules removed */
 
 	.comment-form-inputs .name {
 		margin-bottom: 10px;
@@ -526,10 +523,7 @@ text-align: left;
     line-height: 1.3;
 }
     
-    html .section-13 .text-block-section h5 {
-    font-size: 20px;
-    line-height: 36px;
-}
+    /* html .section-13 .text-block-section h5 removed */
     
     html  .team-wrap {
     display: inline-block !important;
@@ -549,9 +543,7 @@ text-align: left;
     }
     
     
-    html .section-13 .text-block-section h5{
-        margin-bottom: 0 !important;
-    }
+    /* html .section-13 .text-block-section h5 margin removed */
     
     html .block-section {
     padding: 10%;
@@ -585,10 +577,7 @@ text-align: left;
 		margin-left: 0;
 	}
 
-	.section-13 {
-		height: 100% !important;
-		padding-bottom: 4.7% !important;
-	}
+	/* duplicate .section-13 rules removed */
 
 	.section-10 .carousel-indicators {
 		transform: inherit;
@@ -720,11 +709,7 @@ html .img-box-item h4 {
 }
     
     
-    .section-13 .subscribe , .section-13 .subscribe input[type="text"] , .section-13 .subscribe input[type="submit"] {
-    width: 100% !important;
-    display: inline-block !important;
-    text-align: center !important;
-}
+    /* .section-13 subscribe responsive rules removed */
     
     .article-footer , .artical-text .author , .artical-text .comment , .artical-blog .d-flex , .artical-blog .author{
         display: inline-block !important;
