@@ -69,6 +69,30 @@
 	}
 }
 
+/* ====== Logo sizing (override inline heights if present) ====== */
+.navbar-brand img {
+	/* 1.5× larger by default (was 90px) */
+	height: 135px !important;
+	width: auto !important;
+	max-height: none !important;
+}
+
+/* Tablet / small-desktop: cap logo height (1.5× of 70px → 105px) */
+@media (max-width: 991px) {
+	.navbar-brand img {
+		max-height: 105px !important;
+		height: auto !important;
+	}
+}
+
+/* Mobile: smaller cap for narrow screens (1.5× of 60px → 90px) */
+@media (max-width: 767px) {
+	.navbar-brand img {
+		max-height: 90px !important;
+		height: auto !important;
+	}
+}
+
 
 /* ======= PRELOADER ========== */
 
