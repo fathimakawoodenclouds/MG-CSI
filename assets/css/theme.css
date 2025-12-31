@@ -45,27 +45,28 @@
 	display: inline-block;
 	padding: 6px;
 	border-radius: 6px;
-	background: rgba(255,255,255,0.04);
-	box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-	border: 1px solid rgba(0,0,0,0.07);
-	filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
+	background: rgba(255, 255, 255, 0.04);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+	border: 1px solid rgba(0, 0, 0, 0.07);
+	filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
 }
 
 /* For SVG logos, ensure they keep contrast on dark backgrounds */
 .navbar-brand img[src$=".svg"],
 .footer .navbar-brand img[src$=".svg"] {
-	background: rgba(255,255,255,0.05);
+	background: rgba(255, 255, 255, 0.05);
 	padding: 4px;
 }
 
 @media (max-width: 767px) {
+
 	.navbar-brand img,
 	.footer .navbar-brand img,
 	.box-icon-1 img,
 	.sub-block-section img {
 		padding: 4px;
 		border-radius: 4px;
-		box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 	}
 }
 
@@ -628,10 +629,12 @@ nav {
 
 /* Improve visibility of icons in Key Features */
 .section-3 .box-2 i {
-	color: rgba(255,255,255,0.9) !important; /* override inline gold */
-	font-size: 46px; /* consistent size */
+	color: rgba(255, 255, 255, 0.9) !important;
+	/* override inline gold */
+	font-size: 46px;
+	/* consistent size */
 	transition: all 0.3s ease;
-	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
 	display: inline-block;
 }
 
@@ -684,7 +687,8 @@ nav {
 
 .item-section-4 {
 	display: flex;
-	align-items: flex-start; /* align icon to the top of the text */
+	align-items: flex-start;
+	/* align icon to the top of the text */
 }
 
 .item-section-4 i,
@@ -694,7 +698,8 @@ nav {
 
 .item-section-4 i {
 	font-size: 32px;
-	margin-top: 6px; /* small nudge so icon aligns with heading */
+	margin-top: 6px;
+	/* small nudge so icon aligns with heading */
 	line-height: 1;
 }
 
@@ -714,6 +719,7 @@ nav {
 	margin-top: 0;
 	margin-bottom: 8px;
 }
+
 .item-text h5 {
 	color: #151c32;
 	font-family: "Libre Baskerville";
@@ -1033,10 +1039,18 @@ html .section-head h2 {
 }
 
 @media (max-width: 767px) {
-	.section-8 .director-msg { padding: 30px 20px }
-	.section-8 .director-msg .quote-icon { font-size: 42px }
-	.section-8 .director-msg .director-text { font-size: 16px }
-} 
+	.section-8 .director-msg {
+		padding: 30px 20px
+	}
+
+	.section-8 .director-msg .quote-icon {
+		font-size: 42px
+	}
+
+	.section-8 .director-msg .director-text {
+		font-size: 16px
+	}
+}
 
 .team-wrap {
 	flex-direction: row;
@@ -1418,6 +1432,7 @@ html .section-head h2 {
 	font-weight: 400;
 	line-height: 1.4;
 }
+
 /* Make icons in the College Prayer / Anthem more visible */
 .section-11 .block-l h3 i,
 .section-11 .block-r h3 i {
@@ -1428,20 +1443,23 @@ html .section-head h2 {
 	height: 64px;
 	line-height: 64px;
 	text-align: center;
-	background: rgba(0,0,0,0.14);
+	background: rgba(0, 0, 0, 0.14);
 	border-radius: 50%;
 	margin-right: 14px;
-	box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 	vertical-align: middle;
 	transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
+
 .section-11 .block-l h3 i:hover,
 .section-11 .block-r h3 i:hover {
 	transform: translateY(-4px);
-	box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
 }
+
 /* Slightly reduce icon size on small screens */
 @media (max-width: 767px) {
+
 	.section-11 .block-l h3 i,
 	.section-11 .block-r h3 i {
 		width: 48px;
@@ -1451,6 +1469,7 @@ html .section-head h2 {
 		margin-right: 12px;
 	}
 }
+
 .section-11 .block-l p,
 .section-11 .block-r p {
 	color: #0b0b0b;
@@ -1861,6 +1880,7 @@ footer .list-left.list-footer li:before {
 
 .section-pr1-back {
 	background: url(../media/img/back-2.jpg);
+	padding-top: 10px;
 }
 
 
@@ -2022,7 +2042,7 @@ footer .list-left.list-footer li:before {
 	color: #ffffff !important;
 	opacity: 0.98;
 	font-size: 45px;
-	text-shadow: 0 1px 0 rgba(0,0,0,0.12);
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
 	transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
@@ -2039,6 +2059,7 @@ footer .list-left.list-footer li:before {
 }
 
 @media (max-width:767px) {
+
 	.about-s-1 .block-box .box-icon-2 i,
 	.about-s-1 .block-box .box-icon-2 img {
 		font-size: 40px;
@@ -2046,8 +2067,9 @@ footer .list-left.list-footer li:before {
 }
 
 @media (max-width:767px) {
+
 	.about-s-1 .block-box .box-icon-1 i,
-	.about-s-1 .block-box .box-icon-1 img{
+	.about-s-1 .block-box .box-icon-1 img {
 		font-size: 30px;
 	}
 }
@@ -2191,6 +2213,7 @@ footer .list-left.list-footer li:before {
 .blog-header {
 	background: url(../media/img/0-l-1.jpg);
 	background-size: cover;
+	padding-top: 10px;
 }
 
 /* Article */
