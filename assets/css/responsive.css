@@ -55,6 +55,19 @@
 
 	.navbar-toggler {
 		display: block !important;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+
+	.search {
+		position: absolute;
+		top: 17px;
+		right: 15px;
+	}
+
+	header nav.navbar {
+		justify-content: center !important;
 	}
 
 	.close-nav {
@@ -474,18 +487,7 @@
 	}
 
 
-	.navbar .navbar-toggler {
-		display: block !important;
-		position: absolute;
-		top: 10px;
-		left: 10px;
-	}
-
-	.search {
-		position: absolute;
-		top: 17px;
-		right: 15px;
-	}
+	/* Navbar toggler and search positioning moved to max-width: 1410px */
 
 	html .search-block-hidden form {
 		margin: 20% auto;
