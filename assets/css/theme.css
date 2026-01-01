@@ -2020,7 +2020,9 @@ footer .list-left.list-footer li:before {
 
 .about-s-1 .block-box .box-icon-1 {
 	background-color: #cea05f;
-	padding: 39px;
+	width: 135px;
+	min-height: 135px;
+	padding: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -2028,7 +2030,9 @@ footer .list-left.list-footer li:before {
 
 .about-s-1 .block-box .box-icon-2 {
 	background-color: #fe533d;
-	padding: 45px;
+	width: 135px;
+	min-height: 135px;
+	padding: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
