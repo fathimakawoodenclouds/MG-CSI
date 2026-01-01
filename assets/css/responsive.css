@@ -14,6 +14,27 @@
 
 }
 
+@media (min-width: 1400px) and (max-width: 1600px) {
+	.navbar-brand img {
+		height: 108px !important;
+	}
+
+	.navbar-brand span {
+		font-size: 26px !important;
+	}
+}
+
+@media (max-width: 1250px) {
+	.navbar-brand img {
+		height: 40px !important;
+		max-height: 40px !important;
+	}
+
+	.navbar-brand span {
+		font-size: 20px !important;
+	}
+}
+
 .fas.fa-balance-scale {
 	margin-bottom: 16px;
 }
@@ -792,9 +813,7 @@
 		height: 660px !important;
 	}
 
-	.navbar-brand span {
-		display: none !important;
-	}
+
 
 	html .section-3 .box-1 {
 		padding: 10% 10% 5% 10%;
@@ -1492,10 +1511,7 @@
 	}
 }
 
-/* Hide brand text on very small screens */
-.navbar-brand span {
-	display: none !important;
-}
+
 
 /* Tighter spacing */
 .section-2,
@@ -1514,5 +1530,4 @@
 
 .block-box .box-text-right {
 	font-size: 16px !important;
-}
 }

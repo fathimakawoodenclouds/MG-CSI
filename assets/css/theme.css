@@ -31,7 +31,8 @@
 
 .navbar-brand {
 	position: relative;
-	top: -10px;
+	display: flex;
+	align-items: center;
 }
 
 /* Improve logo visibility across the site (header, footer, blocks) */
@@ -222,9 +223,8 @@ nav {
 	font-family: "Libre Baskerville";
 	font-size: 32px;
 	font-weight: 400;
-
-	height: 36px;
-	margin-left: 7px;
+	margin-left: 0;
+	line-height: 1;
 }
 
 .close-nav {
