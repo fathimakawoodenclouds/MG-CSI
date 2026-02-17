@@ -1,0 +1,140 @@
+/* Gallery Page Specific Styles */
+
+/* Ensure the gallery section has proper spacing */
+.section-6 {
+    margin-top: 60px;
+    padding-bottom: 100px;
+}
+
+/* Gallery Grid Container */
+.gallery-grid {
+    margin: 0 -15px; /* Negative margin to offset item padding */
+}
+
+/* Clearfix for Isotope */
+.gallery-grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* Gallery Item Styling */
+.gallery-grid-item {
+    width: 33.333%; /* 3 columns by default */
+    padding: 15px;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-sizing: border-box;
+}
+
+/* Responsive Widths */
+@media (max-width: 991px) {
+    .gallery-grid-item {
+        width: 50%; /* 2 columns on tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-grid-item {
+        width: 100%; /* 1 column on mobile */
+    }
+}
+
+/* Image Styling */
+.gallery-grid-item img {
+    width: 100%;
+    height: 300px; /* Fixed height for uniformity */
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover Effects on Container (Lift) */
+.gallery-grid-item:hover img {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Overlay Styling */
+.gallery-overlay {
+    position: absolute;
+    top: 15px; 
+    left: 15px;
+    right: 15px;
+    bottom: 15px; /* Match padding of item */
+    background: linear-gradient(to top, rgba(21, 28, 50, 0.9) 0%, rgba(21, 28, 50, 0.4) 100%);
+    border-radius: 12px;
+    opacity: 0;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    pointer-events: none; /* Let clicks pass through if needed */
+}
+
+.gallery-grid-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Overlay Text */
+.gallery-overlay h4 {
+    color: #ffffff;
+    font-family: "Libre Baskerville", serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.gallery-overlay h5 {
+    color: #cea05f; /* Gold accent color */
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.1s; /* Slight delay */
+}
+
+/* Text Slide Up Animation */
+.gallery-grid-item:hover .gallery-overlay h4,
+.gallery-grid-item:hover .gallery-overlay h5 {
+    transform: translateY(0);
+}
+
+/* Filter Buttons Modernization */
+.isotop-menu {
+    margin-bottom: 50px !important;
+}
+
+.isotop-menu button {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    color: #555;
+    background: transparent;
+    border: 1px solid transparent;
+}
+
+.isotop-menu button:hover {
+    color: #cea05f;
+    background: rgba(206, 160, 95, 0.1);
+}
+
+.isotop-menu button.current {
+    color: #fff;
+    background: #cea05f;
+    box-shadow: 0 4px 10px rgba(206, 160, 95, 0.3);
+}
