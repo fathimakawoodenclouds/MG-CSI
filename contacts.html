@@ -114,20 +114,23 @@
                   <section class="contact-form">
 
 
-                     <div class="row">
-                        <div class="col-md-12">
-                           <input class="form-input" placeholder="Your Name" type="text" required>
+                     <form action="sendmail.php" method="POST">
+                        <div class="row">
+                           <div class="col-md-12">
+                              <input class="form-input" name="name" placeholder="Your Name" type="text" required>
+                           </div>
+                           <div class="col-md-12"><input class="form-input" name="email" placeholder="Email Address"
+                                 type="email" required></div>
+                           <div class="col-md-12"><input class="form-input" name="subject" placeholder="Subject"
+                                 type="text" required>
+                           </div>
+                           <div class="col-md-12">
+                              <textarea name="message" id="contact-text23" cols="90" rows="7" placeholder="Your Message"
+                                 required></textarea>
+                              <input class="comment-button" value="Send Message" type="submit">
+                           </div>
                         </div>
-                        <div class="col-md-12"><input class="form-input" placeholder="Email Address" type="email"
-                              required></div>
-                        <div class="col-md-12"><input class="form-input" placeholder="Subject" type="text" required>
-                        </div>
-                        <div class="col-md-12">
-                           <textarea name="contact-text" id="contact-text23" cols="90" rows="7"
-                              placeholder="Your Message" required></textarea>
-                           <input class="comment-button" data-brackets-id="2527" value="Send Message" type="submit">
-                        </div>
-                     </div>
+                     </form>
 
                   </section>
 
