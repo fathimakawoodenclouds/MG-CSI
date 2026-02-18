@@ -2453,12 +2453,19 @@ footer .list-left.list-footer li:before {
 	border-radius: 2px;
 	border: 1px solid rgba(21, 28, 50, 0.21);
 	display: inline-block;
-	padding: 15px 23px;
+	padding: 0;
 	transition: all 0.5s ease;
 	color: #151c32;
 	font-family: Roboto;
 	font-size: 18px;
 	font-weight: 400;
+}
+
+.pagination ul li a {
+	display: block;
+	padding: 15px 23px;
+	color: #151c32;
+	text-decoration: none;
 }
 
 .pagination ul li:hover {

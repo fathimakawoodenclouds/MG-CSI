@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     "use strict";
 
@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 
 
-   // Page preloader
+    // Page preloader
 
 
     var $preloader = $('#page-preloader'),
@@ -39,12 +39,12 @@ $(document).ready(function() {
 
 
     // Popup open
-    $(".popup").on("click", function() {
+    $(".popup").on("click", function () {
         $(".popup-show").fadeIn(300);
         return false;
     });
     // Popup close
-    $(".close, .popup-show").on("click", function() {
+    $(".close, .popup-show").on("click", function () {
         $(".popup-show").fadeOut(300);
         return false;
     });
@@ -71,69 +71,69 @@ $(document).ready(function() {
 
 
     // Search block
-    $(".search").on("click", function() {
+    $(".search").on("click", function () {
         $(".search-block-hidden").fadeIn(300);
         return false;
     });
     // Search block close
-    $(".close-search").on("click", function() {
+    $(".close-search").on("click", function () {
         $(".search-block-hidden").fadeOut(300);
         return false;
     });
 
 
-    
+
     // init Isotope
     var $grid = $('.grid').isotope({
         itemSelector: '.grid-item',
         layoutMode: 'fitRows'
     });
-    
+
     // layout Isotope after each image loads
-$grid.imagesLoaded().progress( function() {
-  $grid.isotope('layout');
-});
-    
-    
-    
-$('.hentry').each(function (index, value) { 
-    
-    
+    $grid.imagesLoaded().progress(function () {
+        $grid.isotope('layout');
+    });
+
+
+
+    $('.hentry').each(function (index, value) {
+
+
         /* Forum cell Height */
-    
- $.fn.equivalent = function (){
-        var $blocks = $(this).children(), 
-            maxH    = $blocks.eq(0).height(); 
 
-        $blocks.each(function(){
-           
-            maxH = ( $(this).height() > maxH ) ? $(this).height() : maxH;
-           
-        });
+        $.fn.equivalent = function () {
+            var $blocks = $(this).children(),
+                maxH = $blocks.eq(0).height();
 
-        $blocks.height(maxH); 
-    }
- 
- 
- 
- 
- 
+            $blocks.each(function () {
 
-    $(this).equivalent(); 
-    
-    
- 
-    
-    
-  
-}); 
-    
+                maxH = ($(this).height() > maxH) ? $(this).height() : maxH;
+
+            });
+
+            $blocks.height(maxH);
+        }
 
 
-    
-    
+
+
+
+
+        $(this).equivalent();
+
+
+
+
+
+
+    });
+
+
+
+
+
     // filter items on button click
-    $('.filter-button-group').on('click', 'button', function() {
+    $('.filter-button-group').on('click', 'button', function () {
         var filterValue = $(this).attr('data-filter');
         $grid.isotope({
             filter: filterValue
@@ -141,23 +141,38 @@ $('.hentry').each(function (index, value) {
     });
 
 
-    $('.filter-button-group').on('click', 'button', function() {
+    $('.filter-button-group').on('click', 'button', function () {
         $('.filter-button-group').find('.current').removeClass('current');
         $(this).addClass('current');
     });
 
     // nav mobile
-    $(".navbar-toggler").on("click", function() {
+    $(".navbar-toggler").on("click", function () {
         $(".nav").fadeIn(300);
         return false;
     });
     // Popup close
-    $(".close-nav ").on("click", function() {
+    $(".close-nav ").on("click", function () {
         $(".nav").fadeOut(300);
         return false;
     });
 
 
 
+
+    // Read More Toggle
+    $(".article-read-more").on("click", function (e) {
+        e.preventDefault();
+        var $this = $(this);
+        var $content = $this.closest(".article-item").find(".extra-content");
+
+        $content.slideToggle(300, function () {
+            if ($content.is(":visible")) {
+                $this.text("Read Less");
+            } else {
+                $this.text("Read More");
+            }
+        });
+    });
 
 });
