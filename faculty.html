@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zxx">
 
 <head>
@@ -11,6 +11,221 @@
    <link rel="stylesheet" href="assets/css/master.css" />
    <link rel="icon" type="image/png" href="assets/media/img/csi-logo-small.png" />
    <title>Faculty - Moderator Gladstone MGCSI Institute of Legal Studies (MGCSI Institute of Legal Studies)</title>
+   <style>
+      /* Teacher Detail Modal Styles */
+      .teacher-modal-overlay {
+         display: none;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: rgba(0, 0, 0, 0.7);
+         z-index: 99999;
+         justify-content: center;
+         align-items: center;
+         opacity: 0;
+         transition: opacity 0.3s ease;
+      }
+
+      .teacher-modal-overlay.active {
+         display: flex;
+         opacity: 1;
+      }
+
+      .teacher-modal {
+         background: #fff;
+         border-radius: 12px;
+         width: 90%;
+         max-width: 900px;
+         max-height: 85vh;
+         display: flex;
+         overflow: hidden;
+         box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+         transform: scale(0.9);
+         transition: transform 0.3s ease;
+         position: relative;
+      }
+
+      .teacher-modal-overlay.active .teacher-modal {
+         transform: scale(1);
+      }
+
+      .teacher-modal-close {
+         position: absolute;
+         top: 15px;
+         right: 20px;
+         font-size: 28px;
+         color: #666;
+         cursor: pointer;
+         z-index: 10;
+         width: 36px;
+         height: 36px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 50%;
+         background: rgba(255, 255, 255, 0.9);
+         transition: all 0.2s ease;
+         line-height: 1;
+      }
+
+      .teacher-modal-close:hover {
+         background: #e74c3c;
+         color: #fff;
+      }
+
+      .teacher-modal-left {
+         width: 300px;
+         min-width: 300px;
+         background: linear-gradient(135deg, #1a2332 0%, #2c3e50 100%);
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         padding: 40px 30px;
+      }
+
+      .teacher-modal-photo {
+         width: 200px;
+         height: 200px;
+         border-radius: 12px;
+         overflow: hidden;
+         border: 4px solid rgba(255, 255, 255, 0.2);
+         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+         margin-bottom: 20px;
+      }
+
+      .teacher-modal-photo img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+
+      .teacher-modal-name {
+         color: #fff;
+         font-size: 18px;
+         font-weight: 700;
+         text-align: center;
+         letter-spacing: 1px;
+         margin-bottom: 8px;
+         text-transform: uppercase;
+      }
+
+      .teacher-modal-designation {
+         color: #92714D;
+         font-size: 14px;
+         font-weight: 600;
+         text-align: center;
+      }
+
+      .teacher-modal-right {
+         flex: 1;
+         padding: 35px 30px;
+         overflow-y: auto;
+      }
+
+      .teacher-modal-right h3 {
+         color: #1a2332;
+         font-size: 20px;
+         margin-bottom: 20px;
+         padding-bottom: 10px;
+         border-bottom: 2px solid #92714D;
+      }
+
+      .teacher-detail-row {
+         display: flex;
+         padding: 10px 0;
+         border-bottom: 1px solid #f0f0f0;
+      }
+
+      .teacher-detail-row:last-child {
+         border-bottom: none;
+      }
+
+      .teacher-detail-label {
+         width: 160px;
+         min-width: 160px;
+         font-weight: 700;
+         color: #1a2332;
+         font-size: 13px;
+         text-transform: uppercase;
+         letter-spacing: 0.5px;
+      }
+
+      .teacher-detail-value {
+         flex: 1;
+         color: #555;
+         font-size: 14px;
+         line-height: 1.6;
+         white-space: pre-line;
+      }
+
+      /* Clickable card cursor */
+      .faculty-clickable {
+         cursor: pointer;
+         transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .faculty-clickable:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+         .teacher-modal {
+            flex-direction: column;
+            max-height: 90vh;
+            width: 95%;
+         }
+
+         .teacher-modal-left {
+            width: 100%;
+            min-width: unset;
+            padding: 25px 20px;
+            flex-direction: row;
+            gap: 20px;
+         }
+
+         .teacher-modal-photo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 0;
+         }
+
+         .teacher-modal-name {
+            font-size: 15px;
+         }
+
+         .teacher-detail-row {
+            flex-direction: column;
+         }
+
+         .teacher-detail-label {
+            margin-bottom: 4px;
+         }
+
+         .teacher-modal-right {
+            padding: 20px 15px;
+         }
+      }
+
+      /* Scrollbar styling for modal */
+      .teacher-modal-right::-webkit-scrollbar {
+         width: 6px;
+      }
+
+      .teacher-modal-right::-webkit-scrollbar-track {
+         background: #f1f1f1;
+         border-radius: 3px;
+      }
+
+      .teacher-modal-right::-webkit-scrollbar-thumb {
+         background: #92714D;
+         border-radius: 3px;
+      }
+   </style>
 </head>
 
 <body>
@@ -33,7 +248,8 @@
       <header class="header-top-absolute">
          <nav class="me-auto navbar navbar-expand-lg navbar-dark justify-content-between">
             <a class="navbar-brand d-flex" href="index.html"><img src="assets/media/img/csi-logo-small.png"
-                  alt="MGCSI Institute Logo" style="height: 35px; width: auto; margin-right: 10px;"><!-- <span>MGCSI Institute</span> --></a>
+                  alt="MGCSI Institute Logo"
+                  style="height: 35px; width: auto; margin-right: 10px;"><!-- <span>MGCSI Institute</span> --></a>
             <div class="d-flex ">
                <button class="navbar-toggler" type="button" data-toggle="collapse">
                   <span class="navbar-toggler-icon"></span>
@@ -916,6 +1132,27 @@
          </div>
       </section>
       <!-- end Non-Teaching Staff Section -->
+
+      <!-- Teacher Detail Modal -->
+      <div class="teacher-modal-overlay" id="teacherModal">
+         <div class="teacher-modal">
+            <div class="teacher-modal-close" id="teacherModalClose">&times;</div>
+            <div class="teacher-modal-left">
+               <div class="teacher-modal-photo">
+                  <img id="modalTeacherPhoto" src="" alt="">
+               </div>
+               <div>
+                  <div class="teacher-modal-name" id="modalTeacherName"></div>
+                  <div class="teacher-modal-designation" id="modalTeacherDesignation"></div>
+               </div>
+            </div>
+            <div class="teacher-modal-right">
+               <h3>Faculty Profile</h3>
+               <div id="modalTeacherDetails"></div>
+            </div>
+         </div>
+      </div>
+      <!-- end Teacher Detail Modal -->
       <!-- subscription section removed -->
       <!-- Footer -->
       <footer>
@@ -923,9 +1160,11 @@
             <div class="row">
                <div class="col-md-3">
                   <a class="navbar-brand d-flex" href="#"><img src="assets/media/img/csi-logo-medium.png"
-                        alt="MGCSI Institute Logo" style="height: 55px; width: auto; margin-right: 10px;"><!-- <span>MGCSI Institute</span> --></a>
+                        alt="MGCSI Institute Logo"
+                        style="height: 55px; width: auto; margin-right: 10px;"><!-- <span>MGCSI Institute</span> --></a>
                   <div class="line-red"></div>
-                  <p class="footer-logo-text">Moderator Gladstone MGCSI Institute of Legal Studies (MGCSI Institute of Legal Studies) is dedicated to providing excellence in
+                  <p class="footer-logo-text">Moderator Gladstone MGCSI Institute of Legal Studies (MGCSI Institute of
+                     Legal Studies) is dedicated to providing excellence in
                      legal education, combining academic rigor with practical exposure to shape future legal
                      professionals.</p>
                </div>
@@ -960,7 +1199,8 @@
                </div>
                <div class="line-footer"></div>
                <div class="col-md-6">
-                  <h6 class="footer-alegada">Moderator Gladstone MGCSI Institute of Legal Studies (MGCSI Institute of Legal Studies) © 2024 - All rights reserved.</h6>
+                  <h6 class="footer-alegada">Moderator Gladstone MGCSI Institute of Legal Studies (MGCSI Institute of
+                     Legal Studies) © 2024 - All rights reserved.</h6>
                </div>
                <div class="col-md-6">
                   <div class="footer-social">
@@ -998,6 +1238,516 @@
    <script src="assets/libs/animate/jquery.scrollme.min.js"></script>
    <!-- User customization-->
    <script src="assets/js/custom.js"></script>
+   <!-- Teacher Modal Script -->
+   <script>
+      (function () {
+         var teacherData = {
+            'KEERTHI S. JYOTHI': {
+               designation: 'Vice Principal',
+               dob: '-',
+               experience: '-',
+               qualifications: '-',
+               achievements: '-',
+               phd: '-',
+               ugcNet: '-',
+               email: '-',
+               mobile: '-'
+            },
+            'BINOY DAS S': {
+               designation: 'Asst. Professor in Law',
+               dob: '16/05/1999',
+               experience: 'One year and five months',
+               qualifications: 'BCOM LLB, LLM',
+               achievements: 'Nil',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'binoydaspsla@gmail.com',
+               mobile: '9526210667'
+            },
+            'LEKSHMA V H': {
+               designation: 'Asst. Professor in Law',
+               dob: '25/09/1998',
+               experience: 'One year three months',
+               qualifications: 'BA LLB, LLM (Constitutional Law)',
+               achievements: 'Nil',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'lekshmavh@gmail.com',
+               mobile: '8594059939'
+            },
+            'ABHIJITH J S': {
+               designation: 'Asst. Professor in Law',
+               dob: '13/02/1996',
+               experience: '3 Years',
+               qualifications: 'BBA LL.B, LLM, UGC NET',
+               achievements: 'UGC NET',
+               phd: 'Yes, Part Time Scholar at Government Law College, Trivandrum',
+               ugcNet: 'Yes',
+               email: 'abhia1256@gmail.com',
+               mobile: '9947819439'
+            },
+            'NAMITHA D S': {
+               designation: 'Asst. Professor in Law',
+               dob: '29/07/1999',
+               experience: '4 months',
+               qualifications: 'LL.M in Constitutional Law',
+               achievements: '-',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'namithads1999@gmail.com',
+               mobile: '7736224971'
+            },
+            'ANCY A Y': {
+               designation: 'Asst. Professor in Management',
+               dob: '07/04/1989',
+               experience: '13 years 3 months',
+               qualifications: 'MBA',
+               achievements: '3 publications',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'ancyakhil79@gmail.com',
+               mobile: '8129748782'
+            },
+            'NEETHU L SEKHAR': {
+               designation: 'Asst. Professor in Law',
+               dob: '05/08/1995',
+               experience: '4 years',
+               qualifications: 'BA LLB, LLM',
+               achievements: 'Publication - The Maltreatment and Adolescents offending in India - A Critical Analysis',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'neethulsekhar16@gmail.com',
+               mobile: '9946051395'
+            },
+            'DR. S. VIJILA': {
+               designation: 'Student Counselor',
+               dob: '05/01/1971',
+               experience: '1 Year 2 months',
+               qualifications: 'M. Sc. M. Ed. M. Phil. Ph. D. DCPC',
+               achievements: 'Publications',
+               phd: 'Ph.D',
+               ugcNet: 'No',
+               email: 's.vijilavincent@gmail.com',
+               mobile: '9486543291'
+            },
+            'NISHA S J': {
+               designation: 'Asst. Professor in Law',
+               dob: '31/05/1995',
+               experience: '3 years',
+               qualifications: 'BA English Literature, LLB, LLM - Public International Law',
+               achievements: 'Nil',
+               phd: 'Yes, Synopsis approved',
+               ugcNet: 'No',
+               email: 'nisharaj5347@gmail.com',
+               mobile: '9042124844'
+            },
+            'JEENA MOL STEPHEN': {
+               designation: 'Asst. Professor in Management',
+               dob: '29/04/1989',
+               experience: '11 years 3 months',
+               qualifications: 'MBA (Finance)',
+               achievements: '1. Presented paper "Significance of Wildlife Conservation and Its Legal Aspects" organized by CSIILS.\n2. Presented paper "Strategies for Youth to Safeguard Their Online Privacy" in National Seminar 2024.\n3. Published paper in IJIRT "A Study of E-HRM Consequences" Vol 8, Issue 6, Nov 2021.\n4. Foundations of Digital Marketing and E-Commerce course by Coursera.\n5. Foundation of Project Management course by Coursera.\n6. Published paper in IJRTI "Digital Payment Systems and Their Impact on Financial Inclusion" Vol 10, Issue 8, Aug 2025.',
+               phd: 'Yes, Noorul Islam Center for Higher Education',
+               ugcNet: 'No',
+               email: 'jeenastephens@gmail.com',
+               mobile: '09995349258'
+            },
+            'JOSIN FEBA G S': {
+               designation: 'Asst. Professor in Law',
+               dob: '10/04/1997',
+               experience: '1 year',
+               qualifications: 'BBA LLB, LL.M',
+               achievements: 'No',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'febajosin80@gmail.com',
+               mobile: '9072928453'
+            },
+            'BINDU T': {
+               designation: 'Asst. Professor in Commerce',
+               dob: '30/05/1976',
+               experience: '10 years and 6 months',
+               qualifications: 'M. Com (Finance), MBA (Finance), PGDCA',
+               achievements: '1. "Impact of Social Media on Society" Published in IJFMR, November 2024\n2. "Demonetization of Currency Notes in India" Published in IJFMR, February 2024\n3. "E-Commerce in India - A Review" Published in IJSREM, July 2022\n\nPresentation: Participated in national seminar, January 2024\n\nCompleted NEP 2020 Orientation Programme under MM-TTP of UGC',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'bindu.t.swapna@gmail.com',
+               mobile: '9072598992'
+            },
+            'ARATHY S R': {
+               designation: 'Asst. Professor in Law',
+               dob: '02/02/1995',
+               experience: 'Since 16/11/2022',
+               qualifications: 'LLM (PhD Scholar)',
+               achievements: 'ISSN 2582-6433 (International Journal for Legal Research and Analysis)',
+               phd: 'Yes, Desh Bhagath University, Punjab',
+               ugcNet: 'No',
+               email: 'arathyspillai12@gmail.com',
+               mobile: '8086945859'
+            },
+            'SULAJA RS': {
+               designation: 'Asst. Professor in Law',
+               dob: '23/04/1971',
+               experience: '7 years 8 months',
+               qualifications: 'BSc (Botany), LLB, LLM, MBA (HR), MA (Sociology), MA (Public Administration), PGDCA',
+               achievements: '5 Publications, Working Conditions Of Women In The Factories And Challenges',
+               phd: 'Yes (Kerala University 2024-2027), Topic: Protection of Women Employees in Factories in Kerala',
+               ugcNet: 'No',
+               email: 'sulajarajeeve@gmail.com',
+               mobile: '9744520500'
+            },
+            'SHERLY.R': {
+               designation: 'Asst. Professor in Economics',
+               dob: '30/05/1977',
+               experience: '13 years 3 months',
+               qualifications: 'MA, MPhil, BEd',
+               achievements: 'Measurement of Fiscal and Debt Sustainability of Kerala - An Alternative Approach',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'sherlyr1977@gmail.com',
+               mobile: '9400704675'
+            },
+            'JIJITHA A JOSEPH': {
+               designation: 'Asst. Professor in Management',
+               dob: '06/09/1989',
+               experience: '6 years 11 months',
+               qualifications: 'BE, MBA',
+               achievements: 'Presentations:\n\u2022 Wildlife Conservation and Legal Aspects (CSIILS, Jan 2024)\n\u2022 Youth Online Privacy (National Seminar 2024)\n\nCertificates:\n\u2022 Digital Marketing (Coursera)\n\u2022 NEP 2020 (UGC-MMTTC, 2024)\n\nPublication:\n\u2022 E-HRM Study - IJIRT Vol 8, Issue 6, Nov 2021',
+               phd: 'Yes, at Noorul Islam College of Higher Education',
+               ugcNet: 'No',
+               email: 'jijithaajoseph@gmail.com',
+               mobile: '9495267566'
+            },
+            'AJITHA. S': {
+               designation: 'Political Science',
+               dob: '27/05/1973',
+               experience: '6 years',
+               qualifications: 'MA, M. Phil',
+               achievements: 'Text book - "Comparative Politics" published in 2024',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'ajithajayarajan0@gmail.com',
+               mobile: '9746303299'
+            },
+            'LASNA LATHEEF': {
+               designation: 'Asst. Professor in Law',
+               dob: '22/04/1998',
+               experience: '4 months',
+               qualifications: 'LLM',
+               achievements: 'College topper in UG\n8th rank in LLM from CUSAT\nPublication - "From Shadows to Spotlight: Need for Legal Framework for Protection of Domestic Workers in India" ISSN:2582-6433',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'lasnalatheef2298@gmail.com',
+               mobile: '7559934876'
+            },
+            'NAYANA G': {
+               designation: 'Asst. Professor in Law',
+               dob: '13/01/1987',
+               experience: '2 years',
+               qualifications: 'BSc (Chemistry), LLB, LLM, MPhil',
+               achievements: 'Multiple publications and presentations including:\n\u2022 Codification Of Islamic Personal Law In India\n\u2022 Impact of Divorce on Children\n\u2022 Muslim Women Right to Divorce\n\u2022 Multiple paper presentations at national and international seminars',
+               phd: 'Yes (submitted thesis on 4/7/2025)',
+               ugcNet: 'No',
+               email: 'nayana666priya@gmail.com',
+               mobile: '9567671792'
+            },
+            'RESHMA L J': {
+               designation: 'Asst. Professor in Law',
+               dob: '22/05/1997',
+               experience: '1 year',
+               qualifications: 'LL.M in Constitutional Law and Criminology, BBA.LL.B',
+               achievements: 'Secured 2nd rank in LL.M\n\n1) Published chapter "Equity in Opportunity" (ISBN: 978-81-971969-7-3)\n2) Published "Politics of Religion and Morality" (ISBN: 978-81-938852-8-4)\n3) Published "Ambedkarite Jurisprudence" (ISBN: 978-93-5396-695-9)\n4) Published "Gender Bias" in PEN ACCLAIMS\n5) Multiple paper presentations\n6) NUJS International Conclave on Disability Law, 2025',
+               phd: 'Yes; Govt. Law College Thiruvananthapuram, Kerala University',
+               ugcNet: 'Yes',
+               email: 'reshmalawrance452@gmail.com',
+               mobile: '7994959376'
+            },
+            'SAJITHA S': {
+               designation: 'Asst. Professor in Commerce',
+               dob: '31/05/1982',
+               experience: '10 years',
+               qualifications: 'M.Com',
+               achievements: 'Ecommerce, Demonetization of Currency Notes in India, Measurement of Fiscal and Debt Sustainability of Kerala',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'sajithassherin@gmail.com',
+               mobile: '9747614973'
+            },
+            'NEENA S': {
+               designation: 'Asst. Professor in Law',
+               dob: '31/05/1964',
+               experience: '3 years 1 month',
+               qualifications: 'BSc, LLM',
+               achievements: 'Mitigating Human-Wildlife Conflict - White Black Legal ISSN 2581-8503\nGST Council and its Impact on the Common Man - AYUDH Vol-10',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'neenajayachandran03@gmail.com',
+               mobile: '8281455006'
+            },
+            'ANUBHA S. R': {
+               designation: 'Asst. Professor in Law',
+               dob: '03/02/1985',
+               experience: 'One year and 2 months',
+               qualifications: 'LLB, LLM (Constitutional), LLM (Labour Law)',
+               achievements: 'No',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'anubhasrinivas@gmail.com',
+               mobile: '7598749266'
+            },
+            'SARITHA S R': {
+               designation: 'Asst. Professor in Law',
+               dob: '20/05/2022',
+               experience: '10 years and one month in CSI ILS from 2015',
+               qualifications: 'LL.M',
+               achievements: 'Green Campus Award to CSI ILS\nPG Diploma in Criminal Justice Administration',
+               phd: 'Yes, under University of Kerala',
+               ugcNet: 'No',
+               email: 'sarithapathanavila@gmail.com',
+               mobile: '9666828724'
+            },
+            'ARCHANA S A': {
+               designation: 'Asst. Professor in Law',
+               dob: '17/08/1999',
+               experience: '1 Year 3 Months',
+               qualifications: 'BA LL.B, LL.M (Public Law and IPR), UGC-NET',
+               achievements: 'Presented paper on "Domain Name Disputes in Cyberspace" at University of Kerala, Jan 2023\n\nPresented paper on "Media Trial v. Fair Trial" at National Seminar, Nov 2023',
+               phd: 'No',
+               ugcNet: 'Yes',
+               email: 'archanaachu1708@gmail.com',
+               mobile: '9633966327'
+            },
+            'ANEETA JOEL TG': {
+               designation: 'Asst. Professor in Language',
+               dob: '18/05/1993',
+               experience: '4 years 2 months',
+               qualifications: 'MA, B.Ed. English, SET',
+               achievements: 'Attended 18th NEP Orientation programme\nPublished "India in Transition" - Kamala Markandaya\nPresented paper on Youth Safety in Social Media\nParticipated in Research and Publication Ethics Workshop',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'aneetajoeltg@gmail.com',
+               mobile: '9446622113'
+            },
+            'SINI. R. M': {
+               designation: 'Asst. Professor in Language',
+               dob: '23/05/1988',
+               experience: '12 years 4 months',
+               qualifications: 'MA, B. Ed, MPhil English Literature',
+               achievements: 'Publications under UGC CARA list ISSN 8946\nConcept of Absurdity - Joseph Heller and Thomas Pynchon Novels',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'sinirm1988@gmail.com',
+               mobile: '9048705558'
+            },
+            'SHANTHINI S.R': {
+               designation: 'Asst. Professor in Law',
+               dob: '03/04/1998',
+               experience: '1 Year 3 months',
+               qualifications: 'LL.M',
+               achievements: 'First Rank Holder, LL.M (Criminal Law), MG University (2022-2024)\n\nFemale Criminality in India - Blindfold Legal Journal\nRight to be Forgotten - SILT, MG University\nEducation as a Catalyst - Govt Law College, Thrissur',
+               phd: 'Yes, Kerala University; Topic: Efficacy of Mediation as ADR in Consumer Disputes',
+               ugcNet: 'No',
+               email: 'shanthinisanthosh98@gmail.com',
+               mobile: '8714309474'
+            },
+            'AKSHATHA GIRISH': {
+               designation: 'Asst. Professor in Law',
+               dob: '27/11/1995',
+               experience: '4 Months 13 Days',
+               qualifications: 'B.A.LLB and LLM Constitutional Law',
+               achievements: 'Chapter in Constitutional and Human Rights book (ISBN: 978-81-986578-7-9)\nTopic: Climate Migration and Legal Reform in India',
+               phd: 'Yes, Arunodaya University',
+               ugcNet: 'No',
+               email: 'akshathagirish95@gmail.com',
+               mobile: '8714091471'
+            },
+            'ANNIE JOHN A S': {
+               designation: 'Asst. Professor in Law',
+               dob: '12/08/1997',
+               experience: 'One year and 3 months',
+               qualifications: 'BA LLB, LLM (Constitutional Law)',
+               achievements: 'Nil',
+               phd: 'No',
+               ugcNet: 'No',
+               email: 'anniejoe4424@gmail.com',
+               mobile: '8138046300'
+            },
+            'ANC SMITH FRANCLIN': {
+               designation: 'Asst. Professor in Law',
+               dob: '30/08/1999',
+               experience: '2 years 3 months',
+               qualifications: 'B.A LL.B, LL.M',
+               achievements: '1. "Securing Online Gaming" at International Seminar on Cyber Crime\n2. "RBI Regulations on ETPs" at NLUJ-INDUSLAW Summit 2024\n3. "Decentralized Governance" at Univ. of Kerala\n4. "Governance Across Borders" at OP Jindal Global University\n5. "Media and Constitution" at Dr. MGR University',
+               phd: 'Yes; Amity Law School, Amity University Mumbai (Part Time)',
+               ugcNet: 'No',
+               email: 'advancfranclin@gmail.com',
+               mobile: '+91 85920 05425'
+            },
+            'MERBIN T D': {
+               designation: 'Asst. Professor in Law',
+               dob: '30/03/1997',
+               experience: '2 years',
+               qualifications: 'LLM',
+               achievements: '1 presentation and 1 publication',
+               phd: 'Yes, pursuing PhD in Law, Deshbhagat University Mandi Gobindgarh',
+               ugcNet: 'No',
+               email: 'adv.merbin@gmail.com',
+               mobile: '9207475177'
+            },
+            'HARIS A': {
+               designation: 'Asst. Professor in Law',
+               dob: '30/05/1987',
+               experience: '9 years',
+               qualifications: 'MA, LL.M, UGC NET, PG Diploma in Human Rights',
+               achievements: 'Presented Paper on Constituent Assembly Debates at Dept of Law, University of Kerala',
+               phd: 'No',
+               ugcNet: 'Yes',
+               email: 'harrisabdulsalam@gmail.com',
+               mobile: '8078099542'
+            }
+         };
+
+         var nameMap = {
+            'Keerthi S. Jyothi': 'KEERTHI S. JYOTHI',
+            'Binoy Das S': 'BINOY DAS S',
+            'Lekshma V H': 'LEKSHMA V H',
+            'Abhijith J S': 'ABHIJITH J S',
+            'Nisha S J': 'NISHA S J',
+            'Ancy A Y': 'ANCY A Y',
+            'Neethu L Sekhar': 'NEETHU L SEKHAR',
+            'Josin Feba G S': 'JOSIN FEBA G S',
+            'Bindu T': 'BINDU T',
+            'Arathy S R': 'ARATHY S R',
+            'Sulaja R S': 'SULAJA RS',
+            'Sherly R': 'SHERLY.R',
+            'Jijitha A Joseph': 'JIJITHA A JOSEPH',
+            'Ajitha S': 'AJITHA. S',
+            'Neena S': 'NEENA S',
+            'Anubha S R': 'ANUBHA S. R',
+            'Saritha S R': 'SARITHA S R',
+            'Archana S A': 'ARCHANA S A',
+            'Aneeta Joel T G': 'ANEETA JOEL TG',
+            'Sini R M': 'SINI. R. M',
+            'Shanthini S R': 'SHANTHINI S.R',
+            'Anc Smith Franclin': 'ANC SMITH FRANCLIN',
+            'Annie John A S': 'ANNIE JOHN A S',
+            'Merbin T D': 'MERBIN T D',
+            'Haris A': 'HARIS A',
+            'Sajitha S': 'SAJITHA S',
+            'Jeena Mol Stephen': 'JEENA MOL STEPHEN',
+            'Reshma L J': 'RESHMA L J',
+            'Nayana G': 'NAYANA G',
+            'Lasna Latheef': 'LASNA LATHEEF',
+            'Akshatha Girish': 'AKSHATHA GIRISH'
+         };
+
+         function openTeacherModal(name, photoSrc, optionalDesignation) {
+            var key = nameMap[name];
+            if (!key) {
+               var upperName = name.toUpperCase().replace(/[.\s]+/g, ' ').trim();
+               for (var k in teacherData) {
+                  if (k.toUpperCase().replace(/[.\s]+/g, ' ').trim() === upperName) {
+                     key = k;
+                     break;
+                  }
+               }
+            }
+
+            var data;
+            if (key && teacherData[key]) {
+               data = teacherData[key];
+            } else {
+               key = name; // Use display name for the modal title if no data found
+               data = {
+                  designation: optionalDesignation || 'Faculty Member',
+                  dob: '-',
+                  experience: '-',
+                  qualifications: '-',
+                  achievements: '-',
+                  phd: '-',
+                  ugcNet: '-',
+                  email: '-',
+                  mobile: '-'
+               };
+            }
+
+            document.getElementById('modalTeacherPhoto').src = photoSrc;
+            document.getElementById('modalTeacherName').textContent = key;
+            document.getElementById('modalTeacherDesignation').textContent = data.designation;
+
+            var detailFields = [
+               { label: 'Date of Birth', value: data.dob },
+               { label: 'Experience', value: data.experience },
+               { label: 'Qualifications', value: data.qualifications },
+               { label: 'Achievements', value: data.achievements },
+               { label: 'PhD Pursuing', value: data.phd },
+               { label: 'UGC-NET Qualified', value: data.ugcNet },
+               { label: 'Email', value: data.email },
+               { label: 'Mobile', value: data.mobile }
+            ];
+
+            var html = '';
+            for (var i = 0; i < detailFields.length; i++) {
+               html += '<div class="teacher-detail-row">';
+               html += '<div class="teacher-detail-label">' + detailFields[i].label + '</div>';
+               html += '<div class="teacher-detail-value">' + (detailFields[i].value || '-') + '</div>';
+               html += '</div>';
+            }
+            document.getElementById('modalTeacherDetails').innerHTML = html;
+
+            var overlay = document.getElementById('teacherModal');
+            overlay.style.display = 'flex';
+            setTimeout(function () { overlay.classList.add('active'); }, 10);
+            document.body.style.overflow = 'hidden';
+            return true;
+         }
+
+         function closeTeacherModal() {
+            var overlay = document.getElementById('teacherModal');
+            overlay.classList.remove('active');
+            setTimeout(function () {
+               overlay.style.display = 'none';
+            }, 300);
+            document.body.style.overflow = '';
+         }
+
+         document.getElementById('teacherModalClose').addEventListener('click', closeTeacherModal);
+
+         document.getElementById('teacherModal').addEventListener('click', function (e) {
+            if (e.target === this) closeTeacherModal();
+         });
+
+         document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeTeacherModal();
+         });
+
+         var sections = document.querySelectorAll('.section-4');
+         sections.forEach(function (section) {
+            var heading = section.querySelector('.section-head h2');
+            if (!heading) return;
+            var sectionTitle = heading.textContent.trim();
+            if (sectionTitle !== 'Law Faculty' && sectionTitle !== 'Non-Law Faculty' && sectionTitle !== 'Management' && sectionTitle !== 'Administration') return;
+
+            var cards = section.querySelectorAll('.col-lg-3');
+            cards.forEach(function (card) {
+               var nameEl = card.querySelector('h4');
+               var imgEl = card.querySelector('img');
+               var pEl = card.querySelector('p');
+               if (!nameEl || !imgEl) return;
+
+               var displayName = nameEl.textContent.trim();
+               var displayDesignation = pEl ? pEl.textContent.trim() : '';
+
+               var innerCard = card.querySelector('div[style]');
+               if (innerCard) innerCard.classList.add('faculty-clickable');
+               card.style.cursor = 'pointer';
+               card.addEventListener('click', function () {
+                  openTeacherModal(displayName, imgEl.src, displayDesignation);
+               });
+            });
+         });
+      })();
+   </script>
 </body>
 
 </html>
