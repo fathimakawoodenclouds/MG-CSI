@@ -2029,6 +2029,11 @@ footer .list-left.list-footer li:before {
 	margin-top: 60px;
 }
 
+.text-block-section p,
+.left-block p {
+	text-align: justify;
+}
+
 .about-r-2 img {
 	margin-top: 10px;
 }
